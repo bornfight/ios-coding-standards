@@ -6,12 +6,12 @@ Do:
 
 ```swift
   let three = "3"
-  let title = "I am feeding " + three + " cats"
+  let title = "I am feeding \(three) cats"
 ```
 
 Don't:
 
 ```swift
   let three = "3"
-  let title = "I am feeding \(three) cats"
+  let title = "I am feeding " + three + " cats"
 ```
