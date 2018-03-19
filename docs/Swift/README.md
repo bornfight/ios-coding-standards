@@ -57,3 +57,21 @@
     self.stopScanning()
   })
 ```
+
+## 4. Express boolean comparisons explicitly. It is more readable.
+
+### Do:
+
+```swift
+if isOpened == false {
+
+}
+```
+
+### Don't:
+
+```swift
+if !isOpened {
+
+}
+```
