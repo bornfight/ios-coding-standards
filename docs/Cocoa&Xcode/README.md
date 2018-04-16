@@ -8,7 +8,7 @@
 ### Don't:
 ![alt text](https://github.com/degordian/ios-coding-standards/blob/assets/docs/Cocoa/assets/storyboardIdentifierdDont.png?raw=true)
 
-## 1. Always create a group with folder when adding a new group so the project structure will look the same in Xcode and on the file system.
+## 2. Always create a group with folder so the project structure will look the same in Xcode and on the file system.
 
 ### Do:
 ![alt text](https://github.com/degordian/ios-coding-standards/blob/assets/docs/Cocoa/assets/folderDo.png?raw=true)
