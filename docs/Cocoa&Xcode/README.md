@@ -8,6 +8,7 @@
 ### Don't:
 ![alt text](https://github.com/degordian/ios-coding-standards/blob/assets/docs/Cocoa/assets/storyboardIdentifierdDont.png?raw=true)
 
+
 ## 2. Always create a group with folder so the project structure will look the same in Xcode and on the file system.
 
 ### Do:
@@ -15,3 +16,25 @@
 
 ### Don't:
 ![alt text](https://github.com/degordian/ios-coding-standards/blob/assets/docs/Cocoa/assets/folderDont.png?raw=true)
+
+
+## 3. Don't leave irrelevant comments in your code.
+
+### Do:
+
+```swift
+let config = Realm.Configuration(
+// Set the new schema version. This must be greater than the previously used
+// version (if you've never set a schema version before, the version is 0).
+
+schemaVersion: 15,
+```
+
+### Don't:
+
+```swift
+@implementation VideoPlaybackEAGLView {
+SCNRenderer* renderer; // Renderer
+SCNNode* cameraNode; // Camera Node
+SCNReferenceNode* refNode;
+```

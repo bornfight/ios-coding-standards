@@ -76,24 +76,3 @@ if !isOpened {
 }
 ```
 
-## 5. Don't leave irrelevant comments in your code.
-
-### Do:
-
-```swift
-let config = Realm.Configuration(
-// Set the new schema version. This must be greater than the previously used
-// version (if you've never set a schema version before, the version is 0).
-
-schemaVersion: 15,
-```
-
-### Don't:
-
-```swift
-@implementation VideoPlaybackEAGLView {
-    SCNRenderer* renderer; // Renderer
-    SCNNode* cameraNode; // Camera Node
-    SCNReferenceNode* refNode;
-```
-
