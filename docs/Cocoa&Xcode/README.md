@@ -34,7 +34,7 @@ schemaVersion: 15,
 
 ```swift
 @implementation VideoPlaybackEAGLView {
-SCNRenderer* renderer; // Renderer
-SCNNode* cameraNode; // Camera Node
-SCNReferenceNode* refNode;
+    SCNRenderer* renderer; // Renderer
+    SCNNode* cameraNode; // Camera Node
+    SCNReferenceNode* refNode;
 ```
