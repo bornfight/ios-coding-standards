@@ -91,11 +91,9 @@ schemaVersion: 15,
 ### Don't:
 
 ```swift
-// Some comment irrelevant to code 
-let config = Realm.Configuration(
-// Set the new schema version. This must be greater than the previously used
-// version (if you've never set a schema version before, the version is 0).
-
-schemaVersion: 15,
+@implementation VideoPlaybackEAGLView {
+    SCNRenderer* renderer; // Renderer
+    SCNNode* cameraNode; // Camera Node
+    SCNReferenceNode* refNode;
 ```
 
