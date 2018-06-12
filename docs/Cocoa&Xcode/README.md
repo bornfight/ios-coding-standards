@@ -32,7 +32,7 @@ schemaVersion: 15,
 
 ### Don't:
 
-```objc
+```objective-c
 @implementation VideoPlaybackEAGLView {
     SCNRenderer* renderer; // Renderer
     SCNNode* cameraNode; // Camera Node
