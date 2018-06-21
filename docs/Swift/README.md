@@ -76,3 +76,16 @@ if !isOpened {
 }
 ```
 
+## 5. When passing parameters to another class, prefer enums over boolean types. Enums offer better readability and expressiveness and are easily expandable.
+
+### Do:
+
+```swift
+pushToInfoScreen(infoType: .registration)
+```
+
+### Don't:
+
+```swift
+pushToInfoScreen(registration: true)
+```
