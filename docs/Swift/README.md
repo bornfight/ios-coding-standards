@@ -89,3 +89,19 @@ pushToInfoScreen(infoType: .registration)
 ```swift
 pushToInfoScreen(registration: true)
 ```
+
+## 6. RxSwift: Don't use `Variable<T>`, use `BehaviorRelay<T>`. `Variable<T>` is being deprecated, and `BehaviorRelay<T>` is coming to RxSwift in the next major release (currently it's inside of RxCocoa).
+
+### Do:
+
+```swift
+let myRelay = BehaviorRelay<Bool>(value: false)
+myRelay.accept(true)
+```
+
+### Don't:
+
+```swift
+let myVariable = Variable<Bool>(false)
+myVariable.value = true
+```
