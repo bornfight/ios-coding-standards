@@ -89,3 +89,17 @@ pushToInfoScreen(infoType: .registration)
 ```swift
 pushToInfoScreen(registration: true)
 ```
+
+## 5. Only use the ternary operator if the expression is short
+
+### Do:
+
+```swift
+let foo = bar == true ? 420 : -1
+```
+
+### Don't:
+
+```swift
+let foo = bar.baz(quuz: moos).somePropertyWhichCanSometimesBeNilButAlsoNot(withTimeInterval: 128.multiplied(by: 300)).value.toggled() ? "Anteater" : "George"
+```
