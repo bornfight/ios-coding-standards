@@ -90,7 +90,7 @@ pushToInfoScreen(infoType: .registration)
 pushToInfoScreen(registration: true)
 ```
 
-## 5. Only use the ternary operator if the expression is short
+## 6. Only use the ternary operator if the expression is short
 
 ### Do:
 
@@ -102,4 +102,18 @@ let foo = bar == true ? 420 : -1
 
 ```swift
 let foo = bar.baz(quuz: moos).somePropertyWhichCanSometimesBeNilButAlsoNot(withTimeInterval: 128.multiplied(by: 300)).value.toggled() ? "Anteater" : "George"
+```
+
+## 7. Avoid String-based APIs
+
+### Do:
+
+```swift
+if alert.medium == AlertMedium.realtime.rawValue { ... }
+```
+
+### Don't:
+
+```swift
+if alert.medium == "realtime" { ... }
 ```
