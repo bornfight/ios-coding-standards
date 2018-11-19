@@ -117,3 +117,20 @@ if alert.medium == AlertMedium.realtime.rawValue { ... }
 ```swift
 if alert.medium == "realtime" { ... }
 ```
+
+## 8. Use vertical alignment for functional chaining because it is more readable.
+
+### Do:
+
+```swift
+venueMapInfoView.directionsButton.rx.tap
+    .asDriver()
+    .drive(onNext: showDirectionsInAppleMaps)
+    .disposed(by: bag)
+```
+
+### Don't:
+
+```swift
+venueMapInfoView.directionsButton.rx.tap.asDriver().drive(onNext: showDirectionsInAppleMaps).disposed(by: bag)
+```
