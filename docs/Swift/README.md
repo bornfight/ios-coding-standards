@@ -152,5 +152,4 @@ class Foo {
     // implicitly internal, which makes the compiler's job a bit harder as it needs to check for usages of this property
     var bar = false
 }
-venueMapInfoView.directionsButton.rx.tap.asDriver().drive(onNext: showDirectionsInAppleMaps).disposed(by: bag)
 ```
