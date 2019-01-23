@@ -46,3 +46,40 @@ class Bar: Object { ... }
 
 class Baz: Object { ... }
 ```
+
+## 4. [RxSwift] When subscribing to observables, if your code is more than 4 lines long, extract it into a function.
+
+### Do:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.reloadWithChangeset(changeset: changeset, picksNeedUpdating: picksNeedUpdating)
+})
+```
+
+### Don't:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.updateChangeset(changeset: changeset)
+    if picksNeedUpdating {
+        self?.updatePicks()
+    }
+    self?.tableView.reloadData()
+    ...
+})
+```
+
+## 5. [RxSwift] When subscribing to observables, omit the extra arguments if you don't use them.
+
+### Do:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.reloadWithChangeset(changeset: changeset, picksNeedUpdating: picksNeedUpdating)
+})
+```
+
+### Don't:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.reloadWithChangeset(changeset: changeset, picksNeedUpdating: picksNeedUpdating)
+}, onError: nil, onCompleted: nil)
+
