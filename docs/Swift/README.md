@@ -134,3 +134,51 @@ venueMapInfoView.directionsButton.rx.tap
 ```swift
 venueMapInfoView.directionsButton.rx.tap.asDriver().drive(onNext: showDirectionsInAppleMaps).disposed(by: bag)
 ```
+
+## 9. Use correct access control as deemed necessary
+
+### Do:
+```swift
+class Foo {
+    // only used in this file
+    private var bar = false
+}
+```
+
+### Don't
+
+```swift
+class Foo {
+    // implicitly internal, which makes the compiler's job a bit harder as it needs to check for usages of this property
+    var bar = false
+}
+```
+
+## 10. Use trailing closure syntax wherever possible
+
+Keep in mind that trailing closure syntax can't be used when it could lead to syntactic ambiguity, e.g.:
+
++ this is valid:
+    ```swift
+    let foo = [1, 2, 3, 4].filter { $0 % 2 == 0 }
+    ```
++ this is not:
+    ```swift
+    if [1, 2, 3, 4].filter {$0 % 2 == 0}.count == 2 {
+        //
+    }
+    ```
+
+### Do:
+```swift
+let foo = ["1", "2", "3", "4", "5"]
+    .compactMap { Int($0) }
+    .reduce(0) { $0 + 5 * $1 }
+```
+
+### Don't:
+```swift
+let foo = ["1", "2", "3", "4", "5"]
+    .compactMap({ Int($0) })
+    .reduce(0, { $0 + 5 * $1 })
+```

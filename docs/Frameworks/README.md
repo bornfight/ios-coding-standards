@@ -26,3 +26,23 @@ myRelay.accept(true)
 let myVariable = Variable(false)
 myVariable.value = true
 ```
+
+## 3. [Realm] Only ever have a single Realm object per file
+
+### Do:
+```swift
+// Foo.swift
+
+class Foo: Object { ... }
+```
+
+### Don't:
+```swift
+// Foo.swift
+
+class Foo: Object { ... }
+
+class Bar: Object { ... }
+
+class Baz: Object { ... }
+```
