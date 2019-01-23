@@ -182,3 +182,39 @@ let foo = ["1", "2", "3", "4", "5"]
     .compactMap({ Int($0) })
     .reduce(0, { $0 + 5 * $1 })
 ```
+
+## 11. When subscribing to observables, if your code is more than 4 lines long, extract it into a function.
+
+### Do:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.reloadWithChangeset(changeset: changeset, picksNeedUpdating: picksNeedUpdating)
+})
+```
+
+### Don't:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.updateChangeset(changeset: changeset)
+    if picksNeedUpdating {
+        self?.updatePicks()
+    }
+    self?.tableView.reloadData()
+    ...
+})
+```
+
+## 12. When subscribing to observables, omit the extra arguments if you don't use them.
+
+### Do:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.reloadWithChangeset(changeset: changeset, picksNeedUpdating: picksNeedUpdating)
+})
+```
+
+### Don't:
+```swift
+.drive(onNext: { [weak self] (changeset, picksNeedUpdating) in
+    self?.reloadWithChangeset(changeset: changeset, picksNeedUpdating: picksNeedUpdating)
+}, onError: nil, onCompleted: nil)
