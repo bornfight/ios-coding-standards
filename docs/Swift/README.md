@@ -182,3 +182,33 @@ let foo = ["1", "2", "3", "4", "5"]
     .compactMap({ Int($0) })
     .reduce(0, { $0 + 5 * $1 })
 ```
+
+## 11. Prefer pure functions whenever possible
+
+Pure functions are functions which always have the same output for a certain input, i.e. they behave predictably.
+
+### Do:
+```swift
+struct Multiplier {
+    let number: Int
+
+    func multiply(by otherNumber: Int) -> Int {
+        return number * otherNumber 
+    }
+}
+```
+
+### Don't:
+```swift
+struct Multiplier {
+    var someComplicatedDependandStructure: SomeType
+
+    func multiply() -> Int {
+        if isWednesday {
+            return 5
+        }
+
+        return someComplicatedDependandStructure.number * 23
+    }
+}
+```
