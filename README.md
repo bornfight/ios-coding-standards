@@ -1,5 +1,5 @@
 # ios-coding-standards
-Degordian iOS coding standards (Swift & ObjectiveC)
+Bornfight iOS coding standards (Swift & ObjectiveC)
 
 # Contributing
 Procedure for adding new rules to the repository:
